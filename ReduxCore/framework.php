@@ -95,9 +95,11 @@
                 // Create our private upload directory
                 Redux_Functions::initWpFilesystem();
 
-                self::$_upload_dir = trailingslashit( $wp_filesystem->wp_content_dir() ) . '/redux/';
+                //self::$_upload_dir = trailingslashit( $wp_filesystem->wp_content_dir() ) . '/redux/';
+                self::$_upload_dir =  trailingslashit( plugin_dir_path( __FILE__ ) ). 'redux/';
+                
                 self::$_upload_url = trailingslashit( content_url() ) . '/redux/';
-
+                
                 // Ensure it exists
                 if ( ! is_dir( self::$_upload_dir ) ) {
                     // Create the directory
